@@ -1,3 +1,28 @@
-<p>
-  widget-detail works!
-</p>
+<mat-card class="profile-card">
+  <mat-card-header>
+    <mat-card-title>
+      <h1>
+        <span *ngIf="selectedWidget.id; else prompt">Editing {{originalName}}</span>
+        <ng-template #prompt>Create Batch Number</ng-template>
+      </h1>
+    </mat-card-title>
+  </mat-card-header>
+
+  <form (submit)="saved.emit(selectedWidget)">
+    <mat-card-content>
+      <mat-input-container class="full-width">
+        <input mdInput placeholder="Batch.nr" [(ngModel)]="selectedWidget.name" type="text" name="name">
+      </mat-input-container>
+      <mat-input-container class="full-width">
+        <input mdInput placeholder="Artikelnummer" [(ngModel)]="selectedWidget.description" type="text" name="description">
+      </mat-input-container>
+
+
+    </mat-card-content>
+    
+    <mat-card-actions>
+      <button type="submit" mat-button>Spara</button>
+      <button type="button" mat-button (click)="cancelled.emit(selectedWidget)">Avbryt</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

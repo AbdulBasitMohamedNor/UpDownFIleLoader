@@ -11,6 +11,7 @@ import { ImagefiilesComponent } from './imagefiiles/imagefiiles.component';
 import { WidgetsComponent } from './widgets/widgets.component';
 import { WidgetDetailComponent } from './widgets/widget-detail/widget-detail.component';
 import { WidgetsListComponent } from './widgets/widgets-list/widgets-list.component';
+import {WidgetsServiceService} from './widgets/ServiceModel/widgets-service.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { WidgetsListComponent } from './widgets/widgets-list/widgets-list.compon
     MaterialModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [WidgetsServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
